@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "target": "ES2019",
+    "lib": [
+      "ES2019","DOM"
+    ]
+  },
+  "include": [
+    "sources/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

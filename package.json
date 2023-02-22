@@ -1,0 +1,26 @@
+{
+  "name": "yarn-plugin-install-stage-debugger",
+  "packageManager": "yarn@3.4.1",
+  "main": "./sources/index.ts",
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@yarnpkg/builder": "3.2.7",
+    "@yarnpkg/cli": "3.4.1",
+    "@yarnpkg/core": "3.4.0",
+    "clipanion": "^3.2.0-rc.10",
+    "esbuild": "0.17.10",
+    "esbuild-register": "3.4.2",
+    "nodemon": "2.0.20",
+    "rome": "11.0.0",
+    "typescript": "4.9.5"
+  },
+  "scripts": {
+    "watch": "NODE_ENV=local node --inspect=0.0.0.0 -r esbuild-register lib/dev.ts",
+    "build-node": "esbuild lib/index.ts --outdir=dist --platform=node",
+    "build": "builder build plugin",
+    "check": "yarn lint && yarn build-types && yarn test",
+    "lint": "rome format ./sources && rome check ./sources",
+    "lint-fix": "rome format --write ./sources && rome check --apply-suggested ./sources",
+    "build-types": "tsc -p ./tsconfig-build.json"
+  }
+}
